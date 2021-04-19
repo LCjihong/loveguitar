@@ -1,25 +1,26 @@
 import { createRouter,createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 // 登陆注册
-import User from '../views/User/User.vue'
-import Login from '../components/User/Login.vue'
-import Register from '../components/User/Register.vue'
+import Login from '../views/User/Login.vue'
+import Register from '../views/User/Register.vue'
+
+/**
+ * 业务主体
+ */
+// 首页框架
+
 
 const routes = [{
     path: '/',
-    name: 'Home',
-    component: Home
   },
   {
-    path: '/user',
-    name: 'user',
-    component: User,
-    children: [
-      {path:'/',redirect:'/login'},
-      {path:'login',name:'login',component:Login},
-      {path:'Register',name:'Register',component:Register}
-    ]
-  }
+    path:'/home',
+    name:'Home',
+    component:Home
+  },
+  // 登陆注册
+  {path: '/login',name: 'login',component: Login},
+  {path: '/register',name: 'register',component: Register}
 ]
 
 const router = createRouter({
