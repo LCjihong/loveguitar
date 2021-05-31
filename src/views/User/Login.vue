@@ -6,8 +6,8 @@
       <div class="right fr">
         <div class="login-cell">
           <h3 class="cell-title">登录</h3>
-          <div class="input-box"><el-input v-model="form.user" placeholder="用户名/账号"></el-input></div>
-          <div class="input-box"><el-input v-model="form.password" placeholder="密码"></el-input></div>
+          <div class="input-box"><el-input v-model="form.username" placeholder="用户名/账号"></el-input></div>
+          <div class="input-box"><el-input type="password" v-model="form.password" placeholder="密码"></el-input></div>
           <div class="input-box"><el-button class="submit" @click="submit" :disabled="subPermit">账号密码登录</el-button></div>
           <div class="remeber clear">
             <div class="left fl">
@@ -38,7 +38,7 @@ export default {
   data(){
     return {
       form:{
-        user:'',
+        username:'',
         password:''
       },
       remeber:''
@@ -51,8 +51,17 @@ export default {
   },
   methods:{
     submit(){
-      // this.$router.push('home')
-      
+      this.axios.post('/user/login', this.$store.state.stringify(this.form)).then(res => {
+        if (res.data.data == "登录成功!") {
+          localStorage.setItem('username', res.data.username);
+          this.$router.push('/home');
+        }else{
+          this.$message({
+            message:res.data.data,
+            type:'warning'
+          })
+        }
+      })
     }
   }
 }
@@ -93,9 +102,9 @@ h1{
   box-sizing: border-box;
   padding: 10px 30px;
 
-  /deep/.el-input__inner{
-    background-color: #f4f4f4;
-  }
+  // /deep/.el-input__inner{
+  //   background-color: #f4f4f4;
+  // }
 
   .cell-title{
     font: 500 18px / 56px '';

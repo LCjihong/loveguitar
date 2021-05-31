@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "iconfont";
+  /* Project id 2509438 */
+  src: url('//at.alicdn.com/t/font_2509438_d1p6rrym60n.woff2?t=1621005197586') format('woff2'),
+    url('//at.alicdn.com/t/font_2509438_d1p6rrym60n.woff?t=1621005197586') format('woff'),
+    url('//at.alicdn.com/t/font_2509438_d1p6rrym60n.ttf?t=1621005197586') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-error:before {
+  content: "\e613";
+}
+
+.icon-gengduo:before {
+  content: "\e657";
+}
+
+.icon-yinlemusic214:before {
+  content: "\e617";
+}
+
+.icon-dian:before {
+  content: "\e62c";
+}
+
+.icon-02:before {
+  content: "\e604";
+}
